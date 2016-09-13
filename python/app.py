@@ -4,15 +4,15 @@ import os
 import bottle
 import pymysql
 
-
+bottle.debug(True)
 app = bottle.default_app()
 app.config.load_dict({
     "db": {
         "host": os.environ.get("ISUCON5_DB_HOST") or "localhost",
         "port": int(os.environ.get("ISUCON5_DB_PORT") or 3306),
-        "username": os.environ.get("ISUCON5_DB_USER") or "root",
-        "password": os.environ.get("ISUCON5_DB_PASSWORD"),
-        "database": os.environ.get("ISUCON5_DB_NAME") or "isucon5q",
+        "username": os.environ.get("ISUCON5_DB_USER") or "isucon",
+	"password": os.environ.get("ISUCON5_DB_PASSWORD") or "isucon",        
+	"database": os.environ.get("ISUCON5_DB_NAME") or "isucon5q",
     },
     "session_secret": os.environ.get("ISUCON5_SESSION_SECRET") or "beermoris",
 })
